@@ -94,9 +94,10 @@ function JournalLog({ email }) {
       <div className={jstyles.container}>
         <div className={jstyles.leftPanel}>
           <div>
-            <ul>
+            <ul className={jstyles.ulmargin}>
               {data.map((item, index) => (
                 <li
+                  className={jstyles.entryItem}
                   key={index}
                   onClick={() => {
                     setSelectedIndex(index);
@@ -110,17 +111,17 @@ function JournalLog({ email }) {
           </div>
         </div>
         <div className={jstyles.rightPanel}>
-          <h2>{selectedData.entry_id}</h2>
-          <p>{selectedData["log entry"]}</p>
+          <h2 className={jstyles.filtergreen}>{selectedData.entry_id}</h2>
+          <p className={jstyles.textpad}>{selectedData["log entry"]}</p>
           <p>
             <strong>Mood:</strong> {selectedData.mood}
           </p>
           <p>
             <strong>Responses:</strong>
           </p>
-          <ul>
+          <ul className={jstyles.ulmargin}>
             {selectedData.responses.map((response, index) => (
-              <li key={index}>{response}</li>
+              <li className={jstyles.entryItem} key={index}>{response}</li>
             ))}
           </ul>
           <p>
