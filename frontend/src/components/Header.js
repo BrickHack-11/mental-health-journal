@@ -5,11 +5,14 @@ import { useNavigate } from "react-router-dom";
 
 function Header({ email }) {
   const navigate = useNavigate();
+  const goToLoginPage = () => {
+    navigate("/login");
+  };
   return (
     <>
-      {email && (
+      {
         <header className={hstyles.header}>
-          <div>
+          <div style={{ cursor: "pointer" }} onClick={goToLoginPage}>
             <img className={styles.filtergreen} src="/logo.svg" alt="logo" />
           </div>
           <div className="flex space-x-4">
@@ -32,7 +35,7 @@ function Header({ email }) {
             </button>
           </div>
         </header>
-      )}
+      }
     </>
   );
 }

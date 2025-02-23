@@ -147,7 +147,7 @@ def add_journal():
 
 GET_JOURNAL_ENTRIES = (
     """
-    SELECT date_time, mood, sleep_quality, log_entry, sentiment, responses FROM journal_entry Where u_id = %(u_id)s ORDER BY date_time;
+    SELECT date_time, mood, sleep_quality, log_entry, sentiment, responses FROM journal_entry Where u_id = %(u_id)s ORDER BY date_time DESC;
     """
 )
 
