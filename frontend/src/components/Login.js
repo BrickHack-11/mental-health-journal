@@ -35,6 +35,7 @@ function Login() {
     <div className={styles.container}>
       <div className={styles.containergrid}>
         <img className={styles.filtergreen} src="/logo.svg" alt="logo" />
+        <div>
  
         <form className={styles.form} onSubmit={handleSubmit}>
           <div className={styles.inputcontainer}>
@@ -72,12 +73,12 @@ function Login() {
             Login
           </button>
 
+        </form>
           <div className={styles.topmarginpadding}>
             New User? Sign up{" "}
             <span className={styles.signuplink} onClick={() => console.log("Sign Up Clicked")}>Here</span>
           </div>
-        </form>
-        <div className={styles.containergrid}></div>
+          </div>
       </div>
     </div>
   );

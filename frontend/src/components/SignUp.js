@@ -88,7 +88,7 @@ function SignUp() {
 
   return (
     <div className={styles.container}>
-      <h1> Sign Up</h1>
+      <h1 className={styles.filtergreen}> Sign Up</h1>
       <form className={styles.form} onSubmit={handleSubmit}>
         <div className={styles.inputcontainer}>
           <label>First Name:</label>
@@ -99,10 +99,10 @@ function SignUp() {
             value={formData.firstName}
             onChange={handleChange}
           />
+        </div>
           {errors.firstName && (
             <p className={styles.errorMessage}>{errors.firstName}</p>
           )}
-        </div>
 
         <div className={styles.inputcontainer}>
           <label>Last Name:</label>
@@ -113,10 +113,10 @@ function SignUp() {
             value={formData.lastName}
             onChange={handleChange}
           />
+        </div>
           {errors.lastName && (
             <p className={styles.errorMessage}>{errors.lastName}</p>
           )}
-        </div>
 
         <div className={styles.inputcontainer}>
           <label>Email:</label>
@@ -127,34 +127,34 @@ function SignUp() {
             value={formData.email}
             onChange={handleChange}
           />
+        </div>
           {errors.email && (
             <p className={styles.errorMessage}>{errors.email}</p>
           )}
-        </div>
 
         <div className={styles.inputcontainer}>
           <label>Gender</label>
-          <select name="gender" value={formData.gender} onChange={handleChange}>
+          <select name="gender" value={formData.gender} onChange={handleChange} className={styles.input}>
             <option value="unchosen">Select Gender</option>
             <option value="male">Male</option>
             <option value="female">Female</option>
             <option value="other">Other</option>
           </select>
+        </div>
           {errors.gender && (
             <p className={styles.errorMessage}>{errors.gender}</p>
           )}
-        </div>
 
         <div className={styles.inputcontainer}>
           <label>Birthday:</label>
-          <DatePicker
+          <DatePicker className={styles.dateinput}
             selected={formData.birthday}
             onChange={(date) => setFormData({ ...formData, birthday: date })}
           />
+        </div>
           {errors.birthday && (
             <p className={styles.errorMessage}>{errors.birthday}</p>
           )}
-        </div>
 
         <div className={styles.inputcontainer}>
           <label>Password:</label>
@@ -165,10 +165,10 @@ function SignUp() {
             value={formData.password}
             onChange={handleChange}
           />
+        </div>
           {errors.password && (
             <p className={styles.errorMessage}>{errors.password}</p>
           )}
-        </div>
 
         <div className={styles.inputcontainer}>
           <label>Confirm Password:</label>
@@ -179,12 +179,17 @@ function SignUp() {
             value={formData.confirmPassword}
             onChange={handleChange}
           />
+        </div>
           {errors.confirmPassword && (
             <p className={styles.errorMessage}>{errors.confirmPassword}</p>
           )}
-        </div>
-        <button type="submit">Sign Up</button>
+        <button className={styles.button} type="submit">Sign Up</button>
       </form>
+
+      <div className={styles.topmarginpadding}>
+                  Existing User? Log in{" "}
+                  <span className={styles.signuplink} onClick={() => console.log("Log In Clicked")}>Here</span>
+                </div>
     </div>
   );
 }
