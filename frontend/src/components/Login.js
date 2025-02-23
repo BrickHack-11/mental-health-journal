@@ -25,7 +25,7 @@ function Login() {
         <br />
         <br />
       <form className={styles.form} onSubmit={handleSubmit}>
-        <div >
+        <div className={styles.inputcontainer}>
           <label>Email:</label>
           <input
             className={styles.input}
@@ -34,7 +34,7 @@ function Login() {
             onChange={(e) => setEmail(e.target.value)}
           />
         </div>
-        <div >
+        <div className={styles.inputcontainer}>
           <label>Password:</label>
           <input
             className={styles.input}
