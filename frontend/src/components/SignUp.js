@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useState } from "react";
 import styles from "./SignUp.module.css";
 import DatePicker from "react-datepicker";

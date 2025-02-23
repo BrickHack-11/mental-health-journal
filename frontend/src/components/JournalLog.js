@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import styles from "./Login.module.css";
 import jstyles from "./JournalLog.module.css";
 import { useState, useEffect } from "react";
