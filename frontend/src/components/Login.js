@@ -1,25 +1,14 @@
 import { useState } from "react";
 import colors from "./pallette.css";
 import styles from "./Login.module.css";
+import { validateEmail, validatePassword } from "../validations";
+
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState({ email: "", password: "" });
 
-  const validateEmail = (email) => {
-    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return re.test(email);
-  };
-
-  const validatePassword = (password) => {
-    return (
-      password.length >= 6 &&
-      password.length <= 16 &&
-      /\d/.test(password) &&
-      /[!@#$%^&*]/.test(password)
-    );
-  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
