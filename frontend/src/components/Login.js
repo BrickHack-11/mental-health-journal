@@ -35,7 +35,7 @@ function Login() {
     <div className={styles.container}>
       <div className={styles.containergrid}>
         <img className={styles.filtergreen} src="/logo.svg" alt="logo" />
-        <div>
+        <div className={styles.flexbox}>
  
         <form className={styles.form} onSubmit={handleSubmit}>
           <div className={styles.inputcontainer}>

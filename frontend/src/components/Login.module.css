@@ -85,3 +85,10 @@
     /* filter: invert(48%) sepia(79%) saturate(2476%) hue-rotate(86deg) brightness(128%) contrast(19%); */
     filter: brightness(0) saturate(100%) invert(29%) sepia(71%) saturate(339%) hue-rotate(115deg) brightness(87%) contrast(84%);
 }
+
+.flexbox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
