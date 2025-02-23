@@ -60,7 +60,6 @@ function JournalEntry({ email }) {
 
   return (
     <>
-      <Header email={email} />
       <div className={styles.container}>
         <h1 className={styles.filtergreen}>
           Journal Entry for {new Date().toLocaleDateString()}

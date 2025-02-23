@@ -1,4 +1,3 @@
-import Header from "./Header";
 import styles from "./JournalLog.module.css";
 import { useState, useEffect } from "react";
 import Loader from "./Loader";
@@ -84,7 +83,6 @@ function JournalLog({ email }) {
 
   return (
     <>
-      <Header email={email} />
       <div className={styles.container}>
         <div className={styles.leftPanel}>
           <div>
