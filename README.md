@@ -1,4 +1,4 @@
-# mental-health-journal
+# MindScribe - AI powered mental health journaling App
 
 ## Overview
 This project is an AI-powered mental health journal and mood tracker that helps users log emotions, reflect on their moods, and receive AI-powered self-care suggestions. The goal is to provide insightful mental health tracking with personalized AI support while keeping user data private and secure.
