@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 function JournalLog({ email }) {
   const [data, setData] = useState([]);
   const [selectedIndex, setSelectedIndex] = useState(0);
-  const [selectedData, setSelectedData] = useState({});
+  const [selectedData, setSelectedData] = useState({ responses: [] });
   const [loading, setLoading] = useState(false);
   const initialData = [
     {
@@ -53,6 +53,7 @@ function JournalLog({ email }) {
   const navigate = useNavigate();
 
   useEffect(() => {
+    // console.log(email);
     // fetch data from backend for given user. load the array into data
     // data should be an array of objects, use setData to set the data
     if (email === "") {
@@ -78,7 +79,13 @@ function JournalLog({ email }) {
           setLoading(false);
         }
       };
-      fetchData();
+      //fetchData();
+      setData(initialData);
+      setSelectedData(initialData[0]);
+      //console.log(initialData[0]);
+      console.log(selectedData.responses);
+      setSelectedIndex(0);
+      setLoading(false);
     }
   }, [email, navigate]);
 
@@ -102,7 +109,27 @@ function JournalLog({ email }) {
             </ul>
           </div>
         </div>
-        <div className={jstyles.rightPanel}>2222222</div>
+        <div className={jstyles.rightPanel}>
+          <h2>{selectedData.entry_id}</h2>
+          <p>{selectedData["log entry"]}</p>
+          <p>
+            <strong>Mood:</strong> {selectedData.mood}
+          </p>
+          <p>
+            <strong>Responses:</strong>
+          </p>
+          <ul>
+            {selectedData.responses.map((response, index) => (
+              <li key={index}>{response}</li>
+            ))}
+          </ul>
+          <p>
+            <strong>Sentiment:</strong> {selectedData.sentiment}
+          </p>
+          <p>
+            <strong>Sleep Quality:</strong> {selectedData.sleep_quality}
+          </p>
+        </div>
       </div>
       {loading && <Loader />}
     </>
