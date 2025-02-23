@@ -4,9 +4,7 @@ import styles from "./Login.module.css";
 import { validateEmail, validatePassword } from "../validations";
 import { useNavigate } from "react-router-dom";
 
-function Login() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+function Login({ email, setEmail, password, setPassword }) {
   const [errors, setErrors] = useState({ email: "", password: "" });
 
   const navigate = useNavigate();
