@@ -4,15 +4,25 @@ import styles from "./Login.module.css";
 import jestyles from "./JournalEntry.module.css";
 import { useNavigate } from "react-router-dom";
 import Header from "./Header";
+import Loader from "./Loader";
 
 function JournalEntry({ email }) {
   const [mood, setMood] = useState("");
   const [contri, setContri] = useState("");
   const [sleepQuality, setSleepQuality] = useState(5);
   const [journalText, setJournalText] = useState("");
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
-  const submitJournalEntry = async () => {
+  useEffect(() => {
+    if (email === "") {
+      navigate("/login");
+    }
+  }, [email, navigate]);
+
+  const submitJournalEntry = async (e) => {
+    e.preventDefault();
+    setLoading(true);
     const entryData = {
       email,
       mood,
@@ -31,29 +41,22 @@ function JournalEntry({ email }) {
       });
       const data = await response.json();
       if (!response.ok) {
-        alert("Error: " + (data.message || "Failed to save journal entry"));
-        return;
+        throw new Error(data.message || "Failed to save journal entry");
       }
-
-      alert("Journal entry saved successfully!");
-
       // clear data
       setMood("");
       setContri("");
       setSleepQuality(5);
       setJournalText("");
-      navigate("/viewhistory");
+      // navigate("/view-journal");
     } catch (error) {
       console.error("Error saving journal entry: ", error);
       alert("Something went wrong. Please try again.");
+    } finally {
+      setLoading(false);
+      // navigate("/view-journal");
     }
   };
-
-  useEffect(() => {
-    if (email === "") {
-      navigate("/login");
-    }
-  }, [email, navigate]);
 
   return (
     <>
@@ -139,13 +142,16 @@ function JournalEntry({ email }) {
             <button
               className={styles.button}
               type="submit"
-              onClick={submitJournalEntry}
+              onClick={(e) => {
+                submitJournalEntry(e);
+              }}
             >
               Submit
             </button>
           </div>
         </form>
       </div>
+      {loading && <Loader />}
     </>
   );
 }
