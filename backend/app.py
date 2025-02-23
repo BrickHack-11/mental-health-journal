@@ -115,17 +115,21 @@ def add_journal():
                 result = cursor.fetchone()
                 if not result:
                     return jsonify({"message": "User not found!"}), 404
- 
+                sleep = "Normal";
+                if (int(data["sleep"]) > 6):
+                    sleep = "Good";
+                else:
+                    sleep = "Bad";
                 u_id, date, gender = result               
                 age = datetime.today().year - date.year
-                sentiment, genAI_res = genAI.get_self_care_suggestion(age, gender, data["mood"], data["contribution"], data["log_entry"])
+                sentiment, genAI_res = genAI.get_self_care_suggestion(age, gender, data["contribution"], data["mood"], sleep, data["log_entry"])
                 params2 = {
                     "u_id": u_id,
                     "date_time": datetime.now(),
                     "mood": data["mood"],
                     "log_entry": data["log_entry"],
                     "contri": data["contribution"],
-                    "sleep": data["sleep"],
+                    "sleep": sleep,
                     "senti": sentiment,
                     "responses": genAI_res
                 }
