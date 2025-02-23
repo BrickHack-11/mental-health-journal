@@ -8,7 +8,7 @@ import Login from "./components/Login";
 import SignUp from "./components/SignUp";
 import { Route, Routes, BrowserRouter } from "react-router-dom";
 function App() {
-  const [email, setEmail] = useState("");
+  const [email, setEmail] = useState("ag1482@rit.edu");
   const [password, setPassword] = useState("");
 
   return (

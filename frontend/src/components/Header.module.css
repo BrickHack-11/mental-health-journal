@@ -23,4 +23,5 @@
 
 .button:hover {
     background-color: var(--cambridge-blue);
+    box-shadow: 0 0.2em 0.8em rgba(0, 0, 0, 0.1);
 }

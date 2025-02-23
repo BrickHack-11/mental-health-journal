@@ -1,4 +1,5 @@
-import styles from "./JournalLog.module.css";
+import styles from "./Login.module.css";
+import jstyles from "./JournalLog.module.css";
 import { useState, useEffect } from "react";
 import Loader from "./Loader";
 import { useNavigate } from "react-router-dom";
@@ -83,8 +84,8 @@ function JournalLog({ email }) {
 
   return (
     <>
-      <div className={styles.container}>
-        <div className={styles.leftPanel}>
+      <div className={jstyles.container}>
+        <div className={jstyles.leftPanel}>
           <div>
             <ul>
               {data.map((item, index) => (
@@ -101,7 +102,7 @@ function JournalLog({ email }) {
             </ul>
           </div>
         </div>
-        <div className={styles.rightPanel}>2222222</div>
+        <div className={jstyles.rightPanel}>2222222</div>
       </div>
       {loading && <Loader />}
     </>
