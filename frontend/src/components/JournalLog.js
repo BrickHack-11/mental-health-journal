@@ -79,13 +79,13 @@ function JournalLog({ email }) {
           setLoading(false);
         }
       };
-      //fetchData();
-      setData(initialData);
-      setSelectedData(initialData[0]);
-      //console.log(initialData[0]);
-      console.log(selectedData.responses);
-      setSelectedIndex(0);
-      setLoading(false);
+      fetchData();
+      //   setData(initialData);
+      //   setSelectedData(initialData[0]);
+      //   //console.log(initialData[0]);
+      //   console.log(selectedData.responses);
+      //   setSelectedIndex(0);
+      //   setLoading(false);
     }
   }, [email, navigate]);
 
@@ -120,9 +120,14 @@ function JournalLog({ email }) {
             <strong>Responses:</strong>
           </p>
           <ul className={jstyles.ulmargin}>
-            {selectedData.responses.map((response, index) => (
-              <li className={jstyles.entryItem} key={index}>{response}</li>
-            ))}
+            {selectedData.responses.map(
+              (response, index) =>
+                response && (
+                  <li className={jstyles.entryItem} key={index}>
+                    {response}
+                  </li>
+                )
+            )}
           </ul>
           <p>
             <strong>Sentiment:</strong> {selectedData.sentiment}
