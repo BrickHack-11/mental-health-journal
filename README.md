@@ -12,6 +12,9 @@ This project is an AI-powered mental health journal and mood tracker that helps 
 
 ## How It Works
 
+<img width="1036" alt="image" src="https://github.com/user-attachments/assets/7fac891f-aa88-4bb5-b68b-3723a6734d90" />
+
+
 - User logs their mood and what contributed to that.
 - Journal entry is analyzed using DeepSeek AI.
 - Sentiment analysis classifies emotions.
