@@ -125,7 +125,7 @@ function SignUp() {
 
   return (
     <div className={styles.container}>
-      <h1 className={styles.filtergreen}> Sign Up</h1>
+      <img className={styles.filtergreen} src="/logo.svg" alt="logo" />{" "}
       <form className={styles.form} onSubmit={handleSubmit}>
         <div className={styles.inputcontainer}>
           <label>First Name:</label>
@@ -228,7 +228,6 @@ function SignUp() {
           Sign Up
         </button>
       </form>
-
       <div className={styles.topmarginpadding}>
         Existing User? Log in{" "}
         <span className={styles.signuplink} onClick={() => navigate("/login")}>
