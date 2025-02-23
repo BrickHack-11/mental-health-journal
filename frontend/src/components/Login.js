@@ -1,4 +1,5 @@
 import { useState } from "react";
+import colors from "./pallette.css";
 import styles from "./Login.module.css";
 
 function Login() {

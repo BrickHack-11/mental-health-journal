@@ -1,0 +1,38 @@
+.ash-gray {
+  color: var(--ash-gray);
+}
+.beige {
+  color: var(--beige);
+}
+.pistachio {
+  color: var(--pistachio);
+}
+.cambridge-blue {
+  color: var(--cambridge-blue);
+}
+.brunswick-green {
+  color: var(--brunswick-green);
+}
+.ash-gray-bg {
+  background-color: var(--ash-gray);
+}
+.beige-bg {
+  background-color: var(--beige);
+}
+.pistachio-bg {
+  background-color: var(--pistachio);
+}
+.cambridge-blue-bg {
+  background-color: var(--cambridge-blue);
+}
+.brunswick-green-bg {
+  background-color: var(--brunswick-green);
+}
+:root {
+  --ash-gray: #f0f2f5;
+  --ash-gray-nature: #C9D2C2ff;
+  --beige: #DAE1CAff;
+  --pistachio: #BDD389ff;
+  --cambridge-blue: #7C9782ff;
+  --brunswick-green: #2B6053ff;
+}

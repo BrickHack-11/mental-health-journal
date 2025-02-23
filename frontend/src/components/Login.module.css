@@ -4,12 +4,14 @@
     align-items: center;
     justify-content: center;
     height: 100vh;
-    background-color: #f0f2f5;
+    max-width: 100%;
+    background-color: var(--ash-gray-nature);
+    overflow-y: hidden;
 }
 
 .form {
-    background: #fff;
-    padding: 20px;
+    background: white;
+    padding: 1.25rem;
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     width: 100%;
@@ -25,13 +27,14 @@
 }
 
 .button {
+    margin-top: 0.75rem;
     width: 100%;
-    padding: 10px;
-    background-color: #6f9e5a;
+    padding: 0.7em;
+    background-color: var(--brunswick-green);
     border: none;
     border-radius: 4px;
     color: white;
-    font-size: 16px;
+    font-size: 1em;
     cursor: pointer;
 }
 
@@ -53,4 +56,9 @@
     display: flex;
     align-items: center;
     justify-content: start;
+}
+
+.topmarginpadding{
+    margin-top: 1rem;
+    /* padding: 1rem; */
 }
