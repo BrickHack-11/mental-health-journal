@@ -6,7 +6,7 @@
     height: 100vh;
     max-width: 100%;
     background-color: var(--ash-gray-nature);
-    overflow-y: hidden;
+    /* overflow-y: hidden; */
 }
 
 .containergrid {

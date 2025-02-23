@@ -1,0 +1,31 @@
+.dropdowninput {
+    width: 94%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-align: center;
+    text-align-last: center;
+    -moz-text-align-last: center;
+}
+
+.form {
+    background: white;
+    padding: 1.25rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 40rem;
+}
+
+.slider {
+    width: 100%;
+    accent-color: var(--brunswick-green);
+}
+
+.textarea {
+    /* height: 80%; */
+    /* max-height: 50%; */
+    width: 94%;
+    max-width: 94%;
+  }
