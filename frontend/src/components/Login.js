@@ -31,6 +31,39 @@ function Login() {
     console.log(e.target.value);
   };
 
+  const loginUser = async () => {
+    if (!email || !password) {
+      setErrors({
+        email: "Email is required",
+        password: "Password is required",
+      });
+      return;
+    }
+
+    try {
+      const response = await fetch("http://127.0.0.1:5000/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, password }),
+      });
+      const data = await response.json();
+
+      if (!response.ok) {
+        setErrors({ email: "", password: data.message || "Login Failed" });
+        return;
+      }
+      navigate("/journal");
+    } catch (error) {
+      console.error("Login error:", error);
+      setErrors({
+        email: "",
+        password: "Something went wrong. Try again later.",
+      });
+    }
+  };
+
   return (
     <div className={styles.container}>
       <div className={styles.containergrid}>
@@ -68,7 +101,7 @@ function Login() {
               <p className={styles.errorMessage}>{errors.password}</p>
             )}
 
-            <button className={styles.button} type="submit">
+            <button className={styles.button} type="submit" onClick={loginUser}>
               Login
             </button>
           </form>
