@@ -2,6 +2,7 @@ import { useState } from "react";
 import styles from "./SignUp.module.css";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { useNavigate } from 'react-router-dom';
 import {
   validateEmail,
   validatePassword,
@@ -29,6 +30,8 @@ function SignUp() {
     birthday: "",
     password: "",
   });
+
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -188,7 +191,7 @@ function SignUp() {
 
       <div className={styles.topmarginpadding}>
                   Existing User? Log in{" "}
-                  <span className={styles.signuplink} onClick={() => console.log("Log In Clicked")}>Here</span>
+                  <span className={styles.signuplink} onClick={() => navigate('/login')}>Here</span>
                 </div>
     </div>
   );
