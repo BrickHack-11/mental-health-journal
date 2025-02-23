@@ -29,7 +29,7 @@ function App() {
           />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/journal" element={<JournalEntry email={email} />} />
-          <Route path="/view-journal" element={<JournalLog />} />
+          <Route path="/view-journal" element={<JournalLog email={email} />} />
         </Routes>
       </BrowserRouter>
     </div>

@@ -1,11 +1,15 @@
 import Header from "./Header";
 import styles from "./JournalLog.module.css";
 import { useState, useEffect } from "react";
+import Loader from "./Loader";
+import { useNavigate } from "react-router-dom";
+import Header from "./Header";
 
-function JournalLog() {
+function JournalLog({ email }) {
   const [data, setData] = useState([]);
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [selectedData, setSelectedData] = useState({});
+  const [loading, setLoading] = useState(false);
   const initialData = [
     {
       entry_id: "Sun, 23 Feb 2025 01:07:32 GMT",
@@ -47,39 +51,63 @@ function JournalLog() {
       sleep_quality: 4,
     },
   ];
+  const navigate = useNavigate();
 
   useEffect(() => {
     // fetch data from backend for given user. load the array into data
     // data should be an array of objects, use setData to set the data
-    setData(initialData);
-  }, []);
+    if (email === "") {
+      navigate("/login");
+    } else {
+      const fetchData = async () => {
+        try {
+          const response = await fetch(
+            `http://127.0.0.1:5000/journal?email=${email}`
+          );
+
+          if (!response.ok) {
+            throw new Error("Failed to fetch data");
+          }
+          const result = await response.json();
+          setData(result.entries);
+          if (result.length > 0) {
+            setSelectedData(result[0]);
+            setSelectedIndex(0);
+          }
+        } catch (error) {
+          console.error("Error fetching data: ", error);
+          setLoading(false);
+        }
+      };
+      fetchData();
+    }
+  }, [email, navigate]);
 
   return (
-    
-    
-    <div className={styles.container}>
-      <div className={styles.leftPanel}>
-        <div>
-          <ul className={styles.entryList}>
-            {data.map((item, index) => (
-              <li
-                key={index}
-                className={`${styles.entryItem} ${
-                  selectedIndex === index ? styles.selectedEntry : ""
-                }`}
-                onClick={() => {
-                  setSelectedIndex(index);
-                  setSelectedData(data[index]);
-                }}
-              >
-                {data[index].entry_id.slice(0, 16).trim()}
-              </li>
-            ))}
-          </ul>
+    <>
+      <Header email={email} />
+      <div className={styles.container}>
+        <div className={styles.leftPanel}>
+          <div>
+            <ul>
+              {data.map((item, index) => (
+                <li
+                  key={index}
+                  onClick={() => {
+                    setSelectedIndex(index);
+                    setSelectedData(data[index]);
+                  }}
+                >
+                  {data[index].entry_id.slice(0, 16).trim()}
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
+        <div className={styles.rightPanel}>2222222</div>
       </div>
-      <div className={styles.rightPanel}>2222222</div>
-    </div>
+      {loading && <Loader />}
+    </>
   );
 }
 

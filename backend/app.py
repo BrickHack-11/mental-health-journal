@@ -153,9 +153,9 @@ GET_JOURNAL_ENTRIES = (
 
 @app.get('/journal')
 def get_entries():
-    data = request.get_json()
+    email = request.args.get('email');
     params1 = {
-        "email": data["email"]
+        "email": email
     }
     with connection:
         with connection.cursor() as cursor:
