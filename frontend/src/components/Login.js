@@ -1,4 +1,5 @@
 import { useState } from "react";
+import colors from "./pallette.css";
 import styles from "./Login.module.css";
 
 function Login() {
@@ -47,7 +48,7 @@ function Login() {
         <button className={styles.button} type="submit">
           Login
         </button>
-        <div>
+        <div className={styles.topmarginpadding}>
           New User? Sign up <span onClick={handleNewUser}>Here</span>
         </div>
       </form>
