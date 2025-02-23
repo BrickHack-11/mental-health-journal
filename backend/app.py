@@ -5,12 +5,14 @@ from dotenv import load_dotenv
 from flask import Flask, request, jsonify
 import genAI
 from datetime import datetime
+from flask_cors import CORS
 
 load_dotenv()
 url = os.getenv("DATABASE_URL")
 connection = psycopg2.connect(url)
 
 app = Flask(__name__)
+CORS(app)
 
 INSERT_USER = (
     """
