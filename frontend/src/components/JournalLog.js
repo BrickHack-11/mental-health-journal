@@ -3,7 +3,6 @@ import styles from "./JournalLog.module.css";
 import { useState, useEffect } from "react";
 import Loader from "./Loader";
 import { useNavigate } from "react-router-dom";
-import Header from "./Header";
 
 function JournalLog({ email }) {
   const [data, setData] = useState([]);
