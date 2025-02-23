@@ -19,3 +19,54 @@
   background-color: "#d0e8f2";
   padding: "20px";
 }
+.journalLog {
+    background-color: var(--white);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px;
+    max-width: 800px;
+    width: 100%;
+}
+
+.journalLog h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.journalLog p {
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--dark-gray);
+}
+
+.selectedEntry {
+    background-color: var(--light-blue);
+    border-left: 5px solid var(--blue);
+    padding: 15px;
+    margin: 10px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.selectedEntry:hover {
+    background-color: var(--lighter-blue);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.entryItem {
+    padding: 10px;
+    margin: 5px 0;
+    border-bottom: 1px solid var(--light-gray);
+    cursor: pointer;
+}
+
+.entryItem:hover {
+    background-color: var(--light-gray);
+}
+
+.entryList {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}

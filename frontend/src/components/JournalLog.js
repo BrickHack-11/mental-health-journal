@@ -1,3 +1,4 @@
+import Header from "./Header";
 import styles from "./JournalLog.module.css";
 import { useState, useEffect } from "react";
 
@@ -54,13 +55,18 @@ function JournalLog() {
   }, []);
 
   return (
+    
+    
     <div className={styles.container}>
       <div className={styles.leftPanel}>
         <div>
-          <ul>
+          <ul className={styles.entryList}>
             {data.map((item, index) => (
               <li
                 key={index}
+                className={`${styles.entryItem} ${
+                  selectedIndex === index ? styles.selectedEntry : ""
+                }`}
                 onClick={() => {
                   setSelectedIndex(index);
                   setSelectedData(data[index]);

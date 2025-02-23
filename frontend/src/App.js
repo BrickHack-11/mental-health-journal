@@ -6,7 +6,7 @@ import JournalLog from "./components/JournalLog";
 import Login from "./components/Login";
 import SignUp from "./components/SignUp";
 import { Route, Routes, BrowserRouter } from "react-router-dom";
-
+import Header from "./components/Header";
 function App() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -14,6 +14,7 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
+        <Header title="View Journal"></Header>
         <Routes>
           <Route
             path="/login"
@@ -28,6 +29,7 @@ function App() {
           />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/journal" element={<JournalEntry email={email} />} />
+          <Route path="/view-journal" element={<JournalLog />} />
         </Routes>
       </BrowserRouter>
     </div>
