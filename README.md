@@ -12,7 +12,14 @@ This project is an AI-powered mental health journal and mood tracker that helps 
 
 ## How It Works
 
-- User logs their mood using emojis and text.
+- User logs their mood and what contributed to that.
+🔹 Work/Studies
+🔹 Relationships
+🔹 Health & Fitness
+🔹 Social Life
+🔹 Finances
+🔹 Weather
+🔹 Other
 
 - Journal entry is analyzed using DeepSeek AI.
 
