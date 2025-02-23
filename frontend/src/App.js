@@ -1,12 +1,12 @@
 import "./App.css";
 import { useState } from "react";
 
+import Header from "./components/Header";
 import JournalEntry from "./components/JournalEntry";
 import JournalLog from "./components/JournalLog";
 import Login from "./components/Login";
 import SignUp from "./components/SignUp";
 import { Route, Routes, BrowserRouter } from "react-router-dom";
-import Header from "./components/Header";
 function App() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");

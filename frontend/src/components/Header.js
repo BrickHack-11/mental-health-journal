@@ -1,17 +1,20 @@
 import React from "react";
+import styles from "./Login.module.css";
+import hstyles from "./Header.module.css";
 import { useNavigate } from "react-router-dom";
 
 function Header({ email }) {
   const navigate = useNavigate();
   return (
     <>
-      <header className="">
+      <header className={hstyles.header}>
         <div>
-          <img src="/logo.svg" alt="logo" />
+          <img className={styles.filtergreen} src="/logo.svg" alt="logo" />
         </div>
         <div className="flex space-x-4">
           <span>{email}</span>
           <button
+            className={hstyles.button}
             onClick={() => {
               navigate("/journal");
             }}
@@ -19,6 +22,7 @@ function Header({ email }) {
             New Entry
           </button>
           <button
+            className={hstyles.button}
             onClick={() => {
               navigate("/view-journal");
             }}

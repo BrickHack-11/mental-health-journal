@@ -1,0 +1,26 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: var(--cambridge-blue);
+    color: white;
+}
+
+.button {
+    margin-top: 0.75rem;
+    /* width: 100%; */
+    padding: 0.7em;
+    margin-right: 0.1em;
+    background-color: var(--brunswick-green);
+    border: none;
+    border-radius: 4px;
+    color: white;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+
+.button:hover {
+    background-color: var(--cambridge-blue);
+}
