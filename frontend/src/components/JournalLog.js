@@ -1,0 +1,80 @@
+import styles from "./JournalLog.module.css";
+import { useState, useEffect } from "react";
+
+function JournalLog() {
+  const [data, setData] = useState([]);
+  const [selectedIndex, setSelectedIndex] = useState(0);
+  const [selectedData, setSelectedData] = useState({});
+  const initialData = [
+    {
+      entry_id: "Sun, 23 Feb 2025 01:07:32 GMT",
+      "log entry":
+        "I am not feeling very good today, It seems I won't get a job, and with the loan over my head it seems everything is coming to an depressing end",
+      mood: "Sad",
+      responses: [
+        "",
+        "budgeting for essentials, taking regular breaks to relax",
+      ],
+      sentiment: "mostly negative",
+      sleep_quality: 7,
+    },
+    {
+      entry_id: "Mon, 24 Feb 2025 08:15:45 GMT",
+      "log entry":
+        "Today was a bit better. I managed to complete a few tasks and felt a bit more productive.",
+      mood: "Neutral",
+      responses: ["", "setting small, achievable goals"],
+      sentiment: "neutral",
+      sleep_quality: 6,
+    },
+    {
+      entry_id: "Tue, 25 Feb 2025 10:22:10 GMT",
+      "log entry":
+        "Feeling quite happy today! Had a great conversation with a friend and enjoyed a nice walk in the park.",
+      mood: "Happy",
+      responses: ["", "socializing, spending time in nature"],
+      sentiment: "positive",
+      sleep_quality: 8,
+    },
+    {
+      entry_id: "Wed, 26 Feb 2025 09:30:00 GMT",
+      "log entry":
+        "Had a rough night, couldn't sleep well. Feeling tired and a bit irritable.",
+      mood: "Tired",
+      responses: ["", "practicing good sleep hygiene, taking naps"],
+      sentiment: "mostly negative",
+      sleep_quality: 4,
+    },
+  ];
+
+  useEffect(() => {
+    // fetch data from backend for given user. load the array into data
+    // data should be an array of objects, use setData to set the data
+    setData(initialData);
+  }, []);
+
+  return (
+    <div className={styles.container}>
+      <div className={styles.leftPanel}>
+        <div>
+          <ul>
+            {data.map((item, index) => (
+              <li
+                key={index}
+                onClick={() => {
+                  setSelectedIndex(index);
+                  setSelectedData(data[index]);
+                }}
+              >
+                {data[index].entry_id.slice(0, 16).trim()}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+      <div className={styles.rightPanel}>2222222</div>
+    </div>
+  );
+}
+
+export default JournalLog;

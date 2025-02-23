@@ -1,0 +1,21 @@
+.container {
+  display: grid;
+
+  align-items: center;
+  justify-content: center;
+  grid-template-columns: 3fr 7fr;
+  height: 100vh;
+  max-width: 100%;
+  background-color: var(--ash-gray-nature);
+  /* overflow-y: hidden; */
+}
+
+.leftPanel {
+  background-color: "#f0f0f0";
+  padding: "20px";
+}
+
+.rightPanel {
+  background-color: "#d0e8f2";
+  padding: "20px";
+}
