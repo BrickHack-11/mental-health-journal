@@ -7,8 +7,8 @@ import Header from "./Header";
 import Loader from "./Loader";
 
 function JournalEntry({ email }) {
-  const [mood, setMood] = useState("");
-  const [contri, setContri] = useState("");
+  const [mood, setMood] = useState("Happy");
+  const [contri, setContri] = useState("Work/Studies");
   const [sleepQuality, setSleepQuality] = useState(5);
   const [journalText, setJournalText] = useState("");
   const [loading, setLoading] = useState(false);
@@ -44,8 +44,8 @@ function JournalEntry({ email }) {
         throw new Error(data.message || "Failed to save journal entry");
       }
       // clear data
-      setMood("");
-      setContri("");
+      setMood("Happy");
+      setContri("Work/Studies");
       setSleepQuality(5);
       setJournalText("");
       // navigate("/view-journal");
@@ -60,6 +60,7 @@ function JournalEntry({ email }) {
 
   return (
     <>
+      <Header email={email} />
       <div className={styles.container}>
         <h1 className={styles.filtergreen}>
           Journal Entry for {new Date().toLocaleDateString()}

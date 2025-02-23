@@ -4,10 +4,11 @@ import jstyles from "./JournalLog.module.css";
 import { useState, useEffect } from "react";
 import Loader from "./Loader";
 import { useNavigate } from "react-router-dom";
+import Header from "./Header";
 
 function JournalLog({ email }) {
   const [data, setData] = useState([]);
-  const [selectedIndex, setSelectedIndex] = useState(0);
+  const [selectedIndex, setSelectedIndex] = useState();
   const [selectedData, setSelectedData] = useState({ responses: [] });
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
@@ -37,31 +38,29 @@ function JournalLog({ email }) {
       }
     };
     fetchData();
-    //   setData(initialData);
-    //   setSelectedData(initialData[0]);
-    //   //console.log(initialData[0]);
-    //   console.log(selectedData.responses);
-    // setSelectedIndex(0);
-    // setSelectedData(data[selectedIndex]);
-    //   setLoading(false);
   }, [email]);
 
   return (
     <>
+      <Header email={email} />
       <div className={jstyles.container}>
         <div className={jstyles.leftPanel}>
           <div>
             <ul className={jstyles.ulmargin}>
               {data.map((item, index) => (
                 <li
-                  className={jstyles.entryItem}
+                  className={
+                    selectedIndex !== index
+                      ? jstyles.entryItem
+                      : jstyles.entryItemSelected
+                  }
                   key={index}
                   onClick={() => {
                     setSelectedIndex(index);
                     setSelectedData(data[index]);
                   }}
                 >
-                  {item.entry_id.slice(0, 16).trim()}
+                  {item.entry_id.slice(0, 25).trim()}
                 </li>
               ))}
             </ul>
@@ -69,30 +68,28 @@ function JournalLog({ email }) {
         </div>
         {selectedData && (
           <div className={jstyles.rightPanel}>
-            <h2 className={jstyles.filtergreen}>{selectedData.entry_id}</h2>
-            <p className={jstyles.textpad}>{selectedData["log_entry"]}</p>
-            <p>
-              <strong>Mood:</strong> {selectedData.mood}
-            </p>
-            <p>
-              <strong>Responses:</strong>
-              <ul className={jstyles.ulmargin}>
+            <div className={jstyles.singleEntry}>
+              <h2 className={jstyles.filtergreen}>{selectedData.entry_id}</h2>
+              <p>
+                <strong>Your Entry: </strong>
+                <p>{selectedData["log_entry"]}</p>
+              </p>
+              <p>
+                <strong>Mood:</strong> {selectedData.mood}
+              </p>
+              <p>
+                <strong>Responses:</strong>
                 {selectedData.responses.map(
-                  (response, index) =>
-                    response && (
-                      <li className={jstyles.entryItem} key={index}>
-                        {response}
-                      </li>
-                    )
+                  (response, index) => response && <p key={index}>{response}</p>
                 )}
-              </ul>
-            </p>
-            <p>
-              <strong>Sentiment:</strong> {selectedData.sentiment}
-            </p>
-            <p>
-              <strong>Sleep Quality:</strong> {selectedData.sleep_quality}
-            </p>
+              </p>
+              <p>
+                <strong>Sentiment:</strong> {selectedData.sentiment}
+              </p>
+              <p>
+                <strong>Sleep Quality:</strong> {selectedData.sleep_quality}
+              </p>
+            </div>
           </div>
         )}
       </div>

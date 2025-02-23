@@ -1,7 +1,6 @@
 import "./App.css";
 import { useState } from "react";
 
-import Header from "./components/Header";
 import JournalEntry from "./components/JournalEntry";
 import JournalLog from "./components/JournalLog";
 import Login from "./components/Login";
@@ -14,7 +13,6 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Header title="View Journal"></Header>
         <Routes>
           <Route
             path="/login"
