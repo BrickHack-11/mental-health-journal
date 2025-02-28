@@ -3,6 +3,18 @@
 ## Overview
 This project is an AI-powered mental health journal and mood tracker that helps users log emotions, reflect on their moods, and receive AI-powered self-care suggestions. The goal is to provide insightful mental health tracking with personalized AI support while keeping user data private and secure.
 
+# Login Page
+![image](https://github.com/user-attachments/assets/a33a55f4-3033-4eac-b739-e3c04e41a32c)
+
+# Signup Page
+![image](https://github.com/user-attachments/assets/e87797ed-0b77-48eb-989f-b432778ed2fe)
+
+# Journal Entry
+![image](https://github.com/user-attachments/assets/b8a42839-a937-4e13-9de2-3fe89fa2dd8b)
+
+# Journal History
+![image](https://github.com/user-attachments/assets/f195f74a-0f4e-4081-a19c-16b6f073d839)
+
 ## Features
 
 - Journal Logging: Users can write about their day and emotions.
