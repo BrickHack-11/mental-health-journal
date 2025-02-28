@@ -13,6 +13,39 @@ function JournalLog({ email }) {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
+  function getDay(gmtString) {
+    const dateObj = new Date(gmtString);
+
+    // Get day of the week
+    const optionsDay = { weekday: "long" };
+    const day = dateObj.toLocaleDateString("en-US", optionsDay);
+
+    return day;
+  }
+
+  function getDate(gmtString) {
+    const dateObj = new Date(gmtString);
+    // Get date in MM/DD/YYYY format
+    const optionsDate = { year: "numeric", month: "2-digit", day: "2-digit" };
+    const formattedDate = dateObj.toLocaleDateString("en-US", optionsDate);
+    return formattedDate;
+  }
+
+  function getTime(gmtString) {
+    const dateObj = new Date(gmtString);
+
+    // Get time in 12-hour format
+    const optionsTime = {
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
+      hour12: true,
+    };
+    const formattedTime = dateObj.toLocaleTimeString("en-US", optionsTime);
+
+    return formattedTime;
+  }
+
   useEffect(() => {
     // console.log(email);
     // fetch data from backend for given user. load the array into data
@@ -68,8 +101,15 @@ function JournalLog({ email }) {
         </div>
         {selectedData && (
           <div className={jstyles.rightPanel}>
+            <h2 className={jstyles.filtergreen}>
+              <span className="left-span">
+                {getDate(selectedData.entry_id)}
+              </span>
+              <span className="right-span">
+                {getTime(selectedData.entry_id)}
+              </span>
+            </h2>
             <div className={jstyles.singleEntry}>
-              <h2 className={jstyles.filtergreen}>{selectedData.entry_id}</h2>
               <p>
                 <strong>Your Entry: </strong>
                 <p>{selectedData["log_entry"]}</p>

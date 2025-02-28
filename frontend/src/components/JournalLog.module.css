@@ -22,6 +22,15 @@
   margin-top: 4.5rem;
   background-color: "#d0e8f2";
 }
+
+.rightPanel > h2 {
+  text-align: left;
+  margin-left: 2.1rem;
+  display: flex;
+  justify-content: space-between;
+  width: 85%;
+}
+
 .journalLog {
   background-color: var(--white);
   border-radius: 10px;
@@ -98,8 +107,10 @@
 }
 
 .singleEntry {
-  width: 70%;
+  width: 80%;
   height: auto;
   text-align: left;
-  margin: 0 2rem;
+  margin: 1rem 2rem;
+  background-color: white;
+  padding: 1rem;
 }
